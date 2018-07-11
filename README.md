@@ -13,6 +13,8 @@ Writing your own serialization and deserialization logic has the following benef
     * It is easier for future developers to understand complex serialization.
     * Better isolation of responsibility (decouple the domain from external integrations).
     * Is easier to debug when something isn't working.
+    * JSON is the transport mechanism, which might change. Your domain model is used throughout your code and
+      should not need to change unless your business logic changes.
 
 ## Debugging
 
@@ -25,6 +27,8 @@ Writing your own serialization and deserialization logic has the following benef
     - `objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)`
     - `@JsonIgnoreProperties(ignoreUnknown = true)`
 * How do I deserialize the Location object?
+* How do I turn HvacMode into an sealed class/enum? Using the compiler to check my enum cases makes my business logic
+  more sound.
 * There are a lot of jackson annotations to implement custom deserialization, and a whole articles on the the
   hard to understand exceptions they produce: http://www.baeldung.com/jackson-exception
 
